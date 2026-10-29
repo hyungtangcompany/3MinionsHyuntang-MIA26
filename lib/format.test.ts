@@ -13,3 +13,4 @@ describe("format helpers", () => {
     expect(formatNumber(88)).toBe("88");
   });
 });
+

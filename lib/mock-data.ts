@@ -151,3 +151,4 @@ export const mockPopularIdeas: CommunityIdeaPreview[] = [
     lokasi: "Dusun Harapan Makmur",
   },
 ];
+

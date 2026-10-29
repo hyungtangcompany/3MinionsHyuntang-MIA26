@@ -14,6 +14,7 @@ import {
   LogIn,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Proyek", href: "/proyek", icon: FolderKanban },
@@ -22,12 +23,21 @@ const navItems = [
   { label: "Data Terbuka", href: "/data", icon: Database },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  className?: string;
+}
+
+export function Navbar({ className }: NavbarProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-akar-border/80 bg-akar-bg/95 backdrop-blur supports-[backdrop-filter]:bg-akar-bg/80">
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 w-full border-b border-akar-border/60 bg-white/90 backdrop-blur-md shadow-2xs transition-all",
+        className
+      )}
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand / Logo */}
         <Link
@@ -47,7 +57,7 @@ export function Navbar() {
               </span>
             </div>
             <span className="text-[11px] font-medium text-akar-muted -mt-1 hidden xs:block">
-              Transparansi & Swakelola Warga
+              Transparansi &amp; Swakelola Warga
             </span>
           </div>
         </Link>

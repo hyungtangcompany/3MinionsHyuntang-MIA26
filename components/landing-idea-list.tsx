@@ -123,3 +123,4 @@ export function LandingIdeaList({ ideas }: LandingIdeaListProps) {
     </div>
   );
 }
+
