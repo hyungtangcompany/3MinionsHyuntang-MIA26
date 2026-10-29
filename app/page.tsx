@@ -83,7 +83,7 @@ export default function HomePage() {
           {/* Main Headline (PRD 27.2) */}
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15] drop-shadow-sm">
             Dana desa yang terbuka,{" "}
-            <span className="text-akar-accent underline decoration-white/40 decoration-wavy decoration-2 underline-offset-8">
+            <span className="text-akar-accent">
               dikerjakan oleh warganya
             </span>
           </h1>
