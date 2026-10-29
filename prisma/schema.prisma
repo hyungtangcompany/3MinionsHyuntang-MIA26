@@ -8,3 +8,201 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+// ================= ENUMERASI ================= 
+enum KelasProyek {
+  KECIL
+  MENENGAH
+  BESAR
+}
+
+enum Jalur {
+  SAYEMBARA
+  VENDOR
+}
+
+enum StatusProyek {
+  PEMATANGAN
+  TENDER_DIBUKA
+  PEMILIHAN_VENDOR
+  SELEKSI
+  VERIFIKASI_KOMPETENSI
+  MASA_SANGGAH
+  PENGERJAAN
+  SELESAI
+  DIBATALKAN
+}
+
+enum StatusAnalisis {
+  MENUNGGU
+  BERHASIL
+  GAGAL
+}
+
+enum JenisFlag {
+  TEKS
+  ANGGOTA
+}
+
+enum KeputusanFlag {
+  BELUM
+  WAJAR
+  KLARIFIKASI
+  TIDAK_SAH
+}
+
+// ================= STUB PENDUKUNG ================= 
+// Disediakan agar relasi pada Kelompok dan AnggotaKelompok tervalidasi
+model Pengguna {
+  id               String            @id @default(cuid())
+  nama             String
+  kelompokDipimpin Kelompok[]
+  anggotaKelompok  AnggotaKelompok[]
+}
+
+// ================= MODEL INTI T1 ================= 
+
+model Desa {
+  id          String   @id @default(cuid())
+  nama        String
+  kecamatan   String
+  kabupaten   String
+  tahun       Int      @default(0)
+  pagu        BigInt
+  pagukdmp    BigInt   @default(0)
+  konfigurasi Json?
+  createdAt   DateTime @default(now())
+  proyek      Proyek[]
+}
+
+model Proyek {
+  id               String          @id @default(cuid())
+  desaId           String
+  judul            String
+  deskripsi        String
+  lokasi           String
+  pagu             BigInt
+  kelas            KelasProyek
+  jalur            Jalur?
+  alasanJalur      String?
+  status           StatusProyek    @default(PEMATANGAN)
+  tenggatProposal  DateTime?
+  akhirMasaSanggah DateTime?
+  syaratLokalMin   Int             @default(70)
+  durasiMin        Int             @default(30)
+  durasiMax        Int             @default(90)
+  createdAt        DateTime        @default(now())
+
+  desa             Desa            @relation(fields: [desaId], references: [id])
+  rab              RabItem[]
+  proposal         Proposal[]
+  flag             FlagKemiripan[]
+
+  @@index([desaId, status])
+}
+
+model RabItem {
+  id          String @id @default(cuid())
+  proyekId    String
+  uraian      String
+  volume      Float
+  satuan      String
+  hargaSatuan BigInt
+
+  proyek Proyek @relation(fields: [proyekId], references: [id])
+
+  @@index([proyekId])
+}
+
+model Kelompok {
+  id        String   @id @default(cuid())
+  nama      String
+  ketuaId   String
+  createdAt DateTime @default(now())
+
+  ketua    Pengguna          @relation(fields: [ketuaId], references: [id])
+  anggota  AnggotaKelompok[]
+  proposal Proposal[]
+}
+
+model AnggotaKelompok {
+  id         String   @id @default(cuid())
+  kelompokId String
+  penggunaId String?
+  nama       String?
+  rtRw       String?
+  nikHash    String?
+  ketua      Boolean  @default(false)
+
+  kelompok Kelompok  @relation(fields: [kelompokId], references: [id])
+  pengguna Pengguna? @relation(fields: [penggunaId], references: [id])
+
+  @@index([nikHash])
+  @@index([kelompokId])
+}
+
+model Proposal {
+  id             String         @id @default(cuid())
+  proyekId       String
+  kelompokId     String
+  penawaran      BigInt
+  durasiHari     Int
+  tenagaTotal    Int
+  tenagaLokal    Int
+  narasiMetode   String
+  narasiJadwal   String
+  narasiRisiko   String
+  dokumen        String[]
+  kelengkapan    Json
+  dikirimPada    DateTime       @default(now())
+  statusAnalisis StatusAnalisis @default(MENUNGGU)
+
+  proyek    Proyek          @relation(fields: [proyekId], references: [id])
+  kelompok  Kelompok        @relation(fields: [kelompokId], references: [id])
+  ringkasan RingkasanAi?
+  skor      Skor?
+  flagA     FlagKemiripan[] @relation("FlagA")
+  flagB     FlagKemiripan[] @relation("FlagB")
+
+  @@unique([proyekId, kelompokId])
+  @@index([proyekId])
+}
+
+model RingkasanAi {
+  id          String   @id @default(cuid())
+  proposalId  String   @unique
+  json        Json
+  model       String
+  versiPrompt String
+  dibuatPada  DateTime @default(now())
+
+  proposal Proposal @relation(fields: [proposalId], references: [id])
+}
+
+model Skor {
+  id         String   @id @default(cuid())
+  proposalId String   @unique
+  total      Int
+  rincian    Json
+  flags      Json
+  versiBobot String
+  dibuatPada DateTime @default(now())
+
+  proposal Proposal @relation(fields: [proposalId], references: [id])
+}
+
+model FlagKemiripan {
+  id          String        @id @default(cuid())
+  proyekId    String
+  proposalAId String
+  proposalBId String
+  nilai       Float
+  jenis       JenisFlag
+  keputusan   KeputusanFlag @default(BELUM)
+  catatan     String?
+
+  proyek    Proyek   @relation(fields: [proyekId], references: [id])
+  proposalA Proposal @relation("FlagA", fields: [proposalAId], references: [id])
+  proposalB Proposal @relation("FlagB", fields: [proposalBId], references: [id])
+
+  @@index([proyekId])
+}
