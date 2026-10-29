@@ -4,10 +4,10 @@ import * as React from "react";
 
 const slides = [
   { id: "slide-hero", label: "Beranda" },
-  { id: "slide-metrik", label: "Metrik Dampak" },
+  { id: "slide-metrik", label: "Dampak" },
   { id: "slide-filosofi", label: "Cara Kerja" },
-  { id: "slide-proyek-ide", label: "Sayembara & Ide" },
-  { id: "slide-footer", label: "Data & Transparansi" },
+  { id: "slide-proyek-ide", label: "Proyek & Ide" },
+  { id: "slide-footer", label: "Transparansi" },
 ];
 
 export function SlideIndicator() {
@@ -17,7 +17,7 @@ export function SlideIndicator() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
             const index = slides.findIndex((s) => s.id === entry.target.id);
             if (index !== -1) {
               setActiveSlide(index);
@@ -25,7 +25,7 @@ export function SlideIndicator() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.45 }
     );
 
     slides.forEach((slide) => {
@@ -46,7 +46,7 @@ export function SlideIndicator() {
   return (
     <nav
       aria-label="Navigasi Halaman Slide"
-      className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-3 bg-white/70 backdrop-blur-md p-2 rounded-full border border-akar-border/70 shadow-sm"
+      className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-3 bg-white/80 backdrop-blur-md p-2.5 rounded-full border border-akar-border/80 shadow-md ring-1 ring-black/5"
     >
       {slides.map((slide, idx) => {
         const isActive = activeSlide === idx;
@@ -55,20 +55,20 @@ export function SlideIndicator() {
             key={slide.id}
             type="button"
             onClick={() => scrollToSlide(slide.id)}
-            className="group relative flex items-center justify-center min-h-[32px] min-w-[32px] rounded-full focus:outline-none"
+            className="group relative flex items-center justify-center min-h-[32px] min-w-[32px] rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-akar-primary"
             aria-label={`Pindah ke slide ${slide.label}`}
           >
             {/* Tooltip on hover */}
-            <span className="absolute right-9 rounded-md bg-akar-ink px-2.5 py-1 text-[11px] font-medium text-white opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100 pointer-events-none whitespace-nowrap">
+            <span className="absolute right-10 rounded-md bg-akar-ink px-2.5 py-1 text-xs font-semibold text-white opacity-0 shadow-lg transition-all duration-200 group-hover:opacity-100 group-hover:-translate-x-1 pointer-events-none whitespace-nowrap">
               {slide.label}
             </span>
 
             {/* Indicator Dot */}
             <span
-              className={`h-3 rounded-full transition-all duration-200 ${
+              className={`rounded-full transition-all duration-300 ${
                 isActive
-                  ? "w-7 bg-akar-primary shadow-xs"
-                  : "w-3 bg-stone-300 group-hover:bg-stone-400"
+                  ? "h-7 w-3 bg-akar-primary shadow-sm"
+                  : "h-3 w-3 bg-stone-300 hover:bg-stone-400 group-hover:scale-125"
               }`}
             />
           </button>

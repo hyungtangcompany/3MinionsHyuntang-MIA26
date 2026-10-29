@@ -11,7 +11,6 @@ import {
   User,
   ThumbsUp,
   ArrowRight,
-  FolderKanban,
   Lightbulb,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
@@ -25,8 +24,10 @@ interface LandingProjectsIdeasProps {
   ideas: CommunityIdeaPreview[];
 }
 
+type FilterCategory = "SEMUA" | "TENDER_DIBUKA" | "PENGERJAAN" | "SELESAI" | "IDE";
+
 export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasProps) {
-  const [activeTab, setActiveTab] = React.useState<"proyek" | "ide">("proyek");
+  const [activeFilter, setActiveFilter] = React.useState<FilterCategory>("SEMUA");
   const [supportedIdeas, setSupportedIdeas] = React.useState<Record<string, boolean>>({});
   const [voteCounts, setVoteCounts] = React.useState<Record<string, number>>(() =>
     ideas.reduce((acc, curr) => ({ ...acc, [curr.id]: curr.jumlahDukungan }), {})
@@ -44,58 +45,87 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
     });
   };
 
+  const filteredProjects = React.useMemo(() => {
+    if (activeFilter === "IDE") return [];
+    if (activeFilter === "SEMUA") return projects;
+    return projects.filter((p) => p.status === activeFilter);
+  }, [projects, activeFilter]);
+
+  const isShowingIdeas = activeFilter === "IDE";
+
   return (
-    <div className="w-full max-w-7xl mx-auto flex flex-col justify-center h-full">
-      {/* Header & Tab Selector */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 gap-3">
+    <div className="w-full max-w-5xl mx-auto flex flex-col justify-center items-center my-auto">
+      {/* Header & Filter Pills */}
+      <div className="w-full flex flex-col sm:flex-row sm:items-end sm:justify-between mb-4 sm:mb-6 gap-3">
         <div>
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-akar-primary">
             <span className="inline-block h-2 w-2 rounded-full bg-akar-primary" />
             Transparansi Pelaksanaan
           </div>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-akar-ink">
-            Proyek Sayembara &amp; Aspirasi Warga
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-akar-ink mt-0.5">
+            Sayembara &amp; Aspirasi Warga
           </h2>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="inline-flex rounded-xl bg-stone-100 p-1 border border-akar-border/80 self-start sm:self-auto">
+        {/* Interactive Filter Pills */}
+        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-stone-100 border border-akar-border/80 text-xs font-medium self-start sm:self-auto">
           <button
             type="button"
-            onClick={() => setActiveTab("proyek")}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all min-h-[38px] ${
-              activeTab === "proyek"
+            onClick={() => setActiveFilter("SEMUA")}
+            className={`px-3 py-1.5 rounded-lg transition-all min-h-[36px] font-semibold ${
+              activeFilter === "SEMUA"
                 ? "bg-white text-akar-primary shadow-xs border border-akar-border/60"
                 : "text-akar-muted hover:text-akar-ink"
             }`}
           >
-            <FolderKanban className="h-4 w-4" />
-            <span>Sayembara ({projects.length})</span>
+            Semua ({projects.length})
           </button>
           <button
             type="button"
-            onClick={() => setActiveTab("ide")}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all min-h-[38px] ${
-              activeTab === "ide"
+            onClick={() => setActiveFilter("TENDER_DIBUKA")}
+            className={`px-3 py-1.5 rounded-lg transition-all min-h-[36px] font-semibold ${
+              activeFilter === "TENDER_DIBUKA"
+                ? "bg-white text-akar-primary shadow-xs border border-akar-border/60"
+                : "text-akar-muted hover:text-akar-ink"
+            }`}
+          >
+            Tender Aktif
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveFilter("PENGERJAAN")}
+            className={`px-3 py-1.5 rounded-lg transition-all min-h-[36px] font-semibold ${
+              activeFilter === "PENGERJAAN"
                 ? "bg-white text-akar-earth shadow-xs border border-akar-border/60"
                 : "text-akar-muted hover:text-akar-ink"
             }`}
           >
-            <Lightbulb className="h-4 w-4" />
-            <span>Aspirasi Populer ({ideas.length})</span>
+            Pengerjaan
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveFilter("IDE")}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all min-h-[36px] font-semibold ${
+              activeFilter === "IDE"
+                ? "bg-white text-akar-earth shadow-xs border border-akar-border/60"
+                : "text-akar-muted hover:text-akar-ink"
+            }`}
+          >
+            <Lightbulb className="h-3.5 w-3.5 text-akar-accent" />
+            <span>Aspirasi ({ideas.length})</span>
           </button>
         </div>
       </div>
 
-      {/* Projects View */}
-      {activeTab === "proyek" && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 animate-in fade-in duration-200">
-          {projects.map((project) => (
+      {/* Projects Grid */}
+      {!isShowingIdeas && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 w-full animate-in fade-in duration-300">
+          {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="flex flex-col justify-between border-akar-border/90 bg-white hover:border-akar-primary/50 hover:shadow-md transition-all duration-200"
+              className="group flex flex-col justify-between border-akar-border/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/60 cursor-default"
             >
-              <CardHeader className="p-4 sm:p-5 pb-2 sm:pb-3 space-y-2">
+              <CardHeader className="p-4 sm:p-5 pb-2 space-y-2">
                 <div className="flex items-center justify-between gap-2">
                   <Badge
                     variant={
@@ -118,7 +148,7 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
                   </Badge>
                 </div>
 
-                <CardTitle className="text-base sm:text-lg leading-snug line-clamp-2">
+                <CardTitle className="text-base sm:text-lg leading-snug line-clamp-2 group-hover:text-akar-primary transition-colors">
                   {project.judul}
                 </CardTitle>
 
@@ -133,9 +163,9 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
                   {project.deskripsi}
                 </p>
 
-                <div className="rounded-lg bg-stone-50 border border-akar-border/70 p-2.5 space-y-1.5 text-xs">
+                <div className="rounded-lg bg-stone-50 border border-akar-border/80 p-2.5 space-y-1.5 text-xs">
                   <div className="flex justify-between items-center">
-                    <span className="text-akar-muted">Pagu Dana:</span>
+                    <span className="text-akar-muted">Pagu Anggaran:</span>
                     <span className="font-extrabold text-akar-primary text-sm">
                       {formatRupiah(project.pagu)}
                     </span>
@@ -149,18 +179,18 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
                   {project.tenggatHari && (
                     <div className="flex justify-between items-center text-akar-earth font-medium pt-1 border-t border-akar-border/40 text-[11px]">
                       <span>Batas Tender:</span>
-                      <span className="font-bold">{project.tenggatHari} hari</span>
+                      <span className="font-bold">{project.tenggatHari} hari lagi</span>
                     </div>
                   )}
                   {project.progresPersen !== undefined && (
                     <div className="pt-1 border-t border-akar-border/40">
                       <div className="flex justify-between text-[11px] mb-1">
-                        <span className="text-akar-muted">Progres:</span>
+                        <span className="text-akar-muted">Progres Fisik:</span>
                         <span className="font-bold text-akar-ink">{project.progresPersen}%</span>
                       </div>
                       <div className="h-1.5 w-full bg-stone-200 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-akar-primary rounded-full"
+                          className="h-full bg-akar-primary rounded-full transition-all duration-700"
                           style={{ width: `${project.progresPersen}%` }}
                         />
                       </div>
@@ -189,9 +219,9 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
         </div>
       )}
 
-      {/* Ideas View */}
-      {activeTab === "ide" && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 animate-in fade-in duration-200">
+      {/* Ideas Grid */}
+      {isShowingIdeas && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 w-full animate-in fade-in duration-300">
           {ideas.map((idea) => {
             const isSupported = !!supportedIdeas[idea.id];
             const count = voteCounts[idea.id] ?? idea.jumlahDukungan;
@@ -199,9 +229,9 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
             return (
               <Card
                 key={idea.id}
-                className="flex flex-col justify-between border-akar-border/90 bg-white hover:border-akar-earth/50 hover:shadow-md transition-all duration-200"
+                className="group flex flex-col justify-between border-akar-border/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-earth/60 cursor-default"
               >
-                <CardHeader className="p-4 sm:p-5 pb-2 sm:pb-3 space-y-2">
+                <CardHeader className="p-4 sm:p-5 pb-2 space-y-2">
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-[11px] font-mono font-bold text-akar-muted">
                       {idea.nomor}
@@ -217,7 +247,7 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
                     </Badge>
                   </div>
 
-                  <CardTitle className="text-base sm:text-lg leading-snug line-clamp-2">
+                  <CardTitle className="text-base sm:text-lg leading-snug line-clamp-2 group-hover:text-akar-earth transition-colors">
                     {idea.judul}
                   </CardTitle>
 
@@ -239,7 +269,9 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
                   </p>
                   <div className="flex items-center gap-1 text-[11px] text-akar-muted pt-1">
                     <User className="h-3 w-3 text-akar-earth shrink-0" />
-                    <span className="truncate">Pengusul: <strong className="text-akar-ink font-medium">{idea.pengusul}</strong></span>
+                    <span className="truncate">
+                      Pengusul: <strong className="text-akar-ink font-medium">{idea.pengusul}</strong>
+                    </span>
                   </div>
                 </CardContent>
 
@@ -256,8 +288,8 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
                       size="sm"
                       variant={isSupported ? "earth" : "outline"}
                       onClick={() => toggleSupport(idea.id)}
-                      className="min-h-[40px] px-3 text-xs font-semibold"
-                      aria-label={`Dukung ide ${idea.judul}`}
+                      className="min-h-[40px] px-3 text-xs font-semibold transition-transform active:scale-95"
+                      aria-label={`Dukung aspirasi ${idea.judul}`}
                     >
                       <ThumbsUp className={`h-3.5 w-3.5 mr-1 ${isSupported ? "fill-white" : ""}`} />
                       {isSupported ? "Didukung" : "Dukung"}
@@ -280,20 +312,20 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
       )}
 
       {/* Action Footer for Slide 4 */}
-      <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-akar-border/60">
+      <div className="w-full mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-akar-border/60">
         <span className="text-xs text-akar-muted text-center sm:text-left">
-          {activeTab === "proyek"
-            ? "Pemenang sayembara ditentukan melalui seleksi rumus aturan objektif dan transparansi serapan lokal."
-            : "Aspirasi warga yang didukung publik ditinjau kades dalam waktu maksimal 14 hari."}
+          {isShowingIdeas
+            ? "Aspirasi warga yang didukung publik diverifikasi perangkat desa dalam waktu maksimal 14 hari."
+            : "Pemenang sayembara ditentukan melalui seleksi rumus aturan objektif dan transparansi serapan lokal."}
         </span>
-        <div className="flex items-center gap-3">
-          <Link href={activeTab === "proyek" ? "/proyek" : "/ide"}>
+        <div className="flex items-center gap-2.5">
+          <Link href={isShowingIdeas ? "/ide" : "/proyek"}>
             <Button
               variant="outline"
               size="sm"
               className="min-h-[40px] text-xs font-semibold border-akar-primary/30 text-akar-primary hover:bg-akar-primary-light"
             >
-              <span>{activeTab === "proyek" ? "Buka Semua Sayembara" : "Lihat Semua Aspirasi"}</span>
+              <span>{isShowingIdeas ? "Buka Semua Aspirasi" : "Buka Semua Sayembara"}</span>
               <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
             </Button>
           </Link>
