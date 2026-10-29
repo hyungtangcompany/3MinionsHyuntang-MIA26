@@ -1,0 +1,52 @@
+{
+  "name": "mia-26-akar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "db:generate": "prisma generate"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "@prisma/client": "^6.4.1",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.49.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "exifr": "^7.1.3",
+    "lucide-react": "^0.475.0",
+    "next": "^15.2.0",
+    "openai": "^4.85.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "recharts": "^2.15.1",
+    "tailwind-merge": "^3.0.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.2.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.2",
+    "prisma": "^6.4.1",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --akar-primary: #1F6F43;
+  --akar-earth: #8A5A2B;
+  --akar-accent: #F2B705;
+  --akar-danger: #C0392B;
+  --akar-bg: #FAFAF7;
+  --akar-ink: #1B1B18;
+}
+
+body {
+  color: var(--akar-ink);
+  background-color: var(--akar-bg);
+  min-height: 100vh;
+}
+
