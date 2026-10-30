@@ -122,23 +122,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Mandatory Demo Disclaimer Banner (PRD Bagian 36.5) */}
-        <div className="mt-10 rounded-xl border border-akar-accent/50 bg-akar-accent-light p-4 text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2.5 text-akar-ink">
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-akar-accent text-akar-ink font-bold text-xs">
-                !
-              </div>
-              <p className="text-xs sm:text-sm font-medium">
-                <strong>Catatan Lomba:</strong> Data pada tampilan ini adalah data contoh (fiktif) untuk keperluan lomba Web In Action (WIA) MIA 2026.
-              </p>
-            </div>
-            <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wider text-akar-earth bg-white/80 px-2.5 py-1 rounded-md border border-akar-earth/20">
-              PRD FIX v1.3
-            </span>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between border-t border-akar-border/60 pt-6 text-xs text-akar-muted gap-4">
           <p>© 2026 AKAR - Tim 3MinionsHyuntang (WIA MIA 2026). Hak Cipta Dilindungi.</p>

@@ -124,11 +124,7 @@ export default function HomePage() {
           {/* Section Header */}
           <div className="w-full flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 sm:mb-8 gap-3">
             <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-akar-earth">
-                <span className="inline-block h-2 w-2 rounded-full bg-akar-earth" />
-                Data Berjalan APBDes 2026
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-akar-ink mt-1">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-akar-ink">
                 Angka Realisasi &amp; Serapan Warga
               </h2>
               <p className="text-xs sm:text-sm text-akar-muted mt-1">
@@ -179,9 +175,6 @@ export default function HomePage() {
         <div className="w-full max-w-5xl mx-auto flex flex-col justify-center items-center my-auto">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
-            <Badge variant="earth" className="text-xs uppercase tracking-wider font-bold">
-              Filosofi Platform
-            </Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-akar-ink tracking-tight">
               Empat Pilar Transparansi AKAR
             </h2>
@@ -416,23 +409,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Mandatory Demo Disclaimer Banner (PRD 36.5) & Bottom Bar */}
-        <div className="w-full max-w-5xl mx-auto pt-1 pb-3">
-          <div className="rounded-xl border border-akar-accent/50 bg-akar-accent-light p-3 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-2.5">
-            <div className="flex items-center gap-2 text-akar-ink text-xs">
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-akar-accent text-akar-ink font-black text-[10px]">
-                !
-              </div>
-              <p>
-                <strong>Catatan Lomba:</strong> Data pada tampilan ini adalah data contoh (fiktif) untuk keperluan lomba Web In Action (WIA) MIA 2026.
-              </p>
-            </div>
-            <span className="text-[10px] font-bold text-akar-earth uppercase tracking-wider bg-white px-2 py-0.5 rounded border border-akar-earth/20">
-              PRD FIX v1.3
-            </span>
-          </div>
-
-          <div className="mt-3 flex flex-col sm:flex-row items-center justify-between text-[11px] text-akar-muted gap-2">
+        {/* Bottom Bar */}
+        <div className="w-full max-w-5xl mx-auto pt-2 pb-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-[11px] text-akar-muted gap-2 border-t border-akar-border/60 pt-3">
             <p>© 2026 AKAR - Tim 3MinionsHyuntang (WIA MIA 2026). Hak Cipta Dilindungi.</p>
             <div className="flex items-center space-x-4">
               <Link href="/data" className="hover:text-akar-primary">Data Terbuka</Link>

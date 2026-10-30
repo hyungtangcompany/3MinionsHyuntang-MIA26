@@ -58,11 +58,7 @@ export function LandingProjectsIdeas({ projects, ideas }: LandingProjectsIdeasPr
       {/* Header & Filter Pills */}
       <div className="w-full flex flex-col sm:flex-row sm:items-end sm:justify-between mb-4 sm:mb-6 gap-3">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-akar-primary">
-            <span className="inline-block h-2 w-2 rounded-full bg-akar-primary" />
-            Transparansi Pelaksanaan
-          </div>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-akar-ink mt-0.5">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-akar-ink">
             Sayembara &amp; Aspirasi Warga
           </h2>
         </div>
