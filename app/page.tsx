@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -173,9 +174,27 @@ export default function HomePage() {
       <section
         id="slide-filosofi"
         aria-label="Filosofi dan Cara Kerja AKAR"
-        className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 bg-akar-bg border-b border-akar-border/80"
+        className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative overflow-hidden p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 bg-akar-bg border-b border-akar-border/80"
       >
-        <div className="w-full max-w-5xl xl:max-w-6xl mx-auto flex flex-col justify-center items-center my-auto">
+        {/* Subtle Watermark Logo Background */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 m-auto flex items-center justify-center pointer-events-none select-none z-0"
+        >
+          <div className="relative w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[540px] lg:h-[540px] opacity-[0.045] dark:opacity-[0.06] blur-[0.5px]">
+            <Image
+              src="/logo-akar.png"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 340px, (max-width: 1200px) 440px, 540px"
+              className="object-contain mix-blend-multiply dark:mix-blend-screen"
+              priority={false}
+            />
+          </div>
+        </div>
+
+        {/* Foreground Content */}
+        <div className="w-full max-w-5xl xl:max-w-6xl mx-auto flex flex-col justify-center items-center my-auto relative z-10">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
