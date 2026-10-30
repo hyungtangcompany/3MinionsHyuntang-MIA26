@@ -42,12 +42,12 @@ export default function HomePage() {
         aria-label="Beranda Utama"
         className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 overflow-hidden bg-akar-ink"
       >
-        {/* Authentic Indonesian Rural Village Background Image */}
+        {/* Authentic Indonesian Rural Village Drone Aerial Background Image */}
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-1000"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1920&auto=format&fit=crop')`,
+            backgroundImage: `url('/hero-desa-aerial.jpg')`,
           }}
         />
 
