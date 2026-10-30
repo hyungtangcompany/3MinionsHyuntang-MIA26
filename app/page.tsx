@@ -190,8 +190,8 @@ export default function HomePage() {
 
         {/* Foreground Content */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-4 my-auto flex flex-col justify-center items-center">
-          {/* Section Header with Backdrop Pill */}
-          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-sm border border-zinc-200/80 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-sm">
+          {/* Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2 bg-[#FAFAF7]/85 dark:bg-zinc-950/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
               <span className="text-[#1B1B18] dark:text-zinc-100">Empat Pilar Transparansi </span>
               <span className="text-[#1F6F43] dark:text-emerald-400 font-extrabold">AKAR</span>
@@ -204,7 +204,7 @@ export default function HomePage() {
           {/* 4 Cards Grid with Rich Hover Micro-Interactions */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 w-full">
             {/* A - Aspirasi */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#1F6F43] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border-none shadow-none bg-[#FAFAF7]/80 dark:bg-zinc-950/70 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#FAFAF7]/95 dark:hover:bg-zinc-950/90 cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1F6F43] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   A
@@ -222,7 +222,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+              <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-3.5 mt-5 space-y-2">
                 <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
                   Mekanisme:
                 </div>
@@ -244,7 +244,7 @@ export default function HomePage() {
             </Card>
 
             {/* K - Keterbukaan */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#388E3C] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border-none shadow-none bg-[#FAFAF7]/80 dark:bg-zinc-950/70 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#FAFAF7]/95 dark:hover:bg-zinc-950/90 cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#388E3C] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   K
@@ -262,7 +262,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+              <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-3.5 mt-5 space-y-2">
                 <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
                   Mekanisme:
                 </div>
@@ -284,7 +284,7 @@ export default function HomePage() {
             </Card>
 
             {/* A - Aksi */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#4CAF50] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border-none shadow-none bg-[#FAFAF7]/80 dark:bg-zinc-950/70 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#FAFAF7]/95 dark:hover:bg-zinc-950/90 cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#4CAF50] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   A
@@ -302,7 +302,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+              <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-3.5 mt-5 space-y-2">
                 <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
                   Mekanisme:
                 </div>
@@ -324,7 +324,7 @@ export default function HomePage() {
             </Card>
 
             {/* R - Realisasi */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#14532D] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border-none shadow-none bg-[#FAFAF7]/80 dark:bg-zinc-950/70 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-[#FAFAF7]/95 dark:hover:bg-zinc-950/90 cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#14532D] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   R
@@ -342,7 +342,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+              <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-3.5 mt-5 space-y-2">
                 <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
                   Mekanisme:
                 </div>
