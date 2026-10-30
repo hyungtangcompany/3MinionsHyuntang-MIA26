@@ -177,8 +177,9 @@ export default function HomePage() {
         <div className="w-full max-w-5xl mx-auto flex flex-col justify-center items-center my-auto">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-akar-ink tracking-tight">
-              Empat Pilar Transparansi AKAR
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+              <span className="text-[#1B1B18] dark:text-zinc-100">Empat Pilar Transparansi </span>
+              <span className="text-[#1F6F43] dark:text-emerald-400 font-extrabold">AKAR</span>
             </h2>
             <p className="text-xs sm:text-sm text-akar-muted">
               Siklus utuh dari aspirasi warga hingga pencairan dana berbukti untuk mencegah penyelewengan.
@@ -188,16 +189,17 @@ export default function HomePage() {
           {/* 4 Cards Grid with Rich Hover Micro-Interactions */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 w-full">
             {/* A - Aspirasi */}
-            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/70 cursor-default">
+            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#1F6F43]/50 cursor-default rounded-2xl h-full">
+              <div className="h-1 w-full bg-[#1F6F43]" />
               <CardHeader className="p-5 pb-3 space-y-2.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-primary text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1F6F43] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2">
                   A
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-primary">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#1F6F43]">
                     Pilar 1
                   </span>
-                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-primary transition-colors">
+                  <CardTitle className="text-base sm:text-lg group-hover:text-[#1F6F43] transition-colors">
                     Aspirasi Warga
                   </CardTitle>
                 </div>
@@ -206,8 +208,8 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-5 pt-0">
-                <div className="rounded-lg bg-stone-50 border border-akar-border/80 p-2.5 text-[11px] text-akar-muted space-y-1">
-                  <div className="font-semibold text-akar-ink">Mekanisme:</div>
+                <div className="rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 p-3 text-[11px] text-akar-muted space-y-1">
+                  <div className="font-semibold text-akar-ink dark:text-zinc-200">Mekanisme:</div>
                   <ul className="space-y-0.5 list-disc list-inside">
                     <li>Batas respon kades 14 hari</li>
                     <li>Deteksi ide kembar otomatis</li>
@@ -218,16 +220,17 @@ export default function HomePage() {
             </Card>
 
             {/* K - Keterbukaan */}
-            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/70 cursor-default">
+            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#52A447]/50 cursor-default rounded-2xl h-full">
+              <div className="h-1 w-full bg-[#52A447]" />
               <CardHeader className="p-5 pb-3 space-y-2.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-primary text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#52A447] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
                   K
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-primary">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#52A447]">
                     Pilar 2
                   </span>
-                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-primary transition-colors">
+                  <CardTitle className="text-base sm:text-lg group-hover:text-[#52A447] transition-colors">
                     Keterbukaan Kas
                   </CardTitle>
                 </div>
@@ -236,8 +239,8 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-5 pt-0">
-                <div className="rounded-lg bg-stone-50 border border-akar-border/80 p-2.5 text-[11px] text-akar-muted space-y-1">
-                  <div className="font-semibold text-akar-ink">Mekanisme:</div>
+                <div className="rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 p-3 text-[11px] text-akar-muted space-y-1">
+                  <div className="font-semibold text-akar-ink dark:text-zinc-200">Mekanisme:</div>
                   <ul className="space-y-0.5 list-disc list-inside">
                     <li>Rincian micro-RAB terbuka</li>
                     <li>Rantai hash SHA-256 anti-ubah</li>
@@ -248,16 +251,17 @@ export default function HomePage() {
             </Card>
 
             {/* A - Aksi */}
-            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/70 cursor-default">
+            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#70B843]/50 cursor-default rounded-2xl h-full">
+              <div className="h-1 w-full bg-[#70B843]" />
               <CardHeader className="p-5 pb-3 space-y-2.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-primary text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#70B843] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2">
                   A
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-primary">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#70B843]">
                     Pilar 3
                   </span>
-                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-primary transition-colors">
+                  <CardTitle className="text-base sm:text-lg group-hover:text-[#70B843] transition-colors">
                     Aksi Swakelola
                   </CardTitle>
                 </div>
@@ -266,8 +270,8 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-5 pt-0">
-                <div className="rounded-lg bg-stone-50 border border-akar-border/80 p-2.5 text-[11px] text-akar-muted space-y-1">
-                  <div className="font-semibold text-akar-ink">Mekanisme:</div>
+                <div className="rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 p-3 text-[11px] text-akar-muted space-y-1">
+                  <div className="font-semibold text-akar-ink dark:text-zinc-200">Mekanisme:</div>
                   <ul className="space-y-0.5 list-disc list-inside">
                     <li>Syarat serapan lokal min. 70%</li>
                     <li>Deteksi tumpang tindih tim/NIK</li>
@@ -278,16 +282,17 @@ export default function HomePage() {
             </Card>
 
             {/* R - Realisasi */}
-            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/70 cursor-default">
+            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#165B37]/50 cursor-default rounded-2xl h-full">
+              <div className="h-1 w-full bg-[#165B37]" />
               <CardHeader className="p-5 pb-3 space-y-2.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-primary text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#165B37] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
                   R
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-primary">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#165B37]">
                     Pilar 4
                   </span>
-                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-primary transition-colors">
+                  <CardTitle className="text-base sm:text-lg group-hover:text-[#165B37] transition-colors">
                     Realisasi Berbukti
                   </CardTitle>
                 </div>
@@ -296,8 +301,8 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-5 pt-0">
-                <div className="rounded-lg bg-stone-50 border border-akar-border/80 p-2.5 text-[11px] text-akar-muted space-y-1">
-                  <div className="font-semibold text-akar-ink">Mekanisme:</div>
+                <div className="rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-700/50 p-3 text-[11px] text-akar-muted space-y-1">
+                  <div className="font-semibold text-akar-ink dark:text-zinc-200">Mekanisme:</div>
                   <ul className="space-y-0.5 list-disc list-inside">
                     <li>Foto laporan bertimestamp</li>
                     <li>Termin terkunci sebelum progres cukup</li>
