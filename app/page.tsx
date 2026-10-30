@@ -136,33 +136,32 @@ export default function HomePage() {
               </p>
             </div>
 
-            <Link href="/kas">
-              <Button
-                variant="outline"
-                className="min-h-[44px] text-xs sm:text-sm font-semibold border-akar-primary/30 text-akar-primary hover:bg-akar-primary-light"
-              >
-                <span>Periksa Buku Kas Lengkap</span>
-                <ChevronRight className="ml-1.5 h-4 w-4" />
-              </Button>
+            <Link
+              href="/kas"
+              className="inline-flex items-center gap-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-sm font-medium px-4 py-2 rounded-full transition-all shrink-0"
+            >
+              <span>Periksa Buku Kas Lengkap</span>
+              <ChevronRight className="h-4 w-4 text-zinc-500" />
             </Link>
           </div>
 
-          {/* Interactive Animated Metric Cards */}
+          {/* Interactive Animated Metric Bento Grid */}
           <AnimatedMetricCards metrics={mockMetrics} />
 
-          {/* Bottom Transparency Notice */}
-          <div className="w-full mt-6 rounded-xl border border-akar-border bg-stone-50 p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-akar-muted">
+          {/* Bottom Transparency Notice Strip */}
+          <div className="w-full mt-4 rounded-2xl border border-zinc-200/60 bg-zinc-50 dark:bg-zinc-800/50 px-5 py-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-600 dark:text-zinc-400">
             <div className="flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-akar-primary shrink-0" />
+              <ShieldCheck className="h-4 w-4 text-[#1F6F43] shrink-0" />
               <span>
                 Angka buku kas diperbarui langsung dari entri pembayaran bertanda bukti digital dan tidak dapat diubah sepihak.
               </span>
             </div>
             <Link
               href="/kas"
-              className="font-semibold text-akar-primary hover:underline shrink-0"
+              className="font-semibold text-[#1F6F43] hover:underline inline-flex items-center gap-1 shrink-0"
             >
-              Lihat Rantai Verifikasi &rarr;
+              <span>Lihat Rantai Verifikasi SHA-256</span>
+              <span>&rarr;</span>
             </Link>
           </div>
         </div>
