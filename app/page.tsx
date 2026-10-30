@@ -393,13 +393,6 @@ export default function HomePage() {
             {/* Card 1: Tentang Platform AKAR */}
             <div className="bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200/80 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-semibold w-fit mb-3">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
-                  </span>
-                  <span>Sistem Aktif &amp; Terbuka</span>
-                </div>
                 <h4 className="font-bold text-base text-zinc-900 mb-2">
                   Tentang Platform AKAR
                 </h4>
@@ -407,8 +400,17 @@ export default function HomePage() {
                   Platform transparansi dana desa dan bursa kerja sayembara swakelola warga yang memastikan setiap rupiah terdistribusi secara adil, akuntabel, dan bebas manipulasi.
                 </p>
               </div>
-              <div className="pt-4 text-[11px] text-zinc-400 font-medium">
-                Inisiatif Web In Action • MIA 2026
+              <div className="pt-4 border-t border-zinc-100 mt-2">
+                <Link
+                  href="#slide-philosophy"
+                  className="group inline-flex items-center gap-1.5 text-xs font-semibold text-[#1F6F43]"
+                >
+                  <span className="relative">
+                    Pelajari Filosofi AKAR
+                    <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#1F6F43] transition-all duration-300 group-hover:w-full" />
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
 
@@ -479,7 +481,7 @@ export default function HomePage() {
         {/* Bottom Footer Bar */}
         <div className="w-full max-w-6xl mx-auto px-4 pb-4">
           <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-3 border-t border-zinc-200/60 pt-6">
-            <p>© 2026 AKAR - Tim 3MinionsHyuntang (WIA MIA 2026). Hak Cipta Dilindungi.</p>
+            <p>© 2026 AKAR - Tim 3MinionsHyuntang. Hak Cipta Dilindungi.</p>
             <div className="flex items-center space-x-5">
               <Link href="/data" className="hover:text-[#1F6F43] transition-colors">
                 Data Terbuka

@@ -124,7 +124,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between border-t border-akar-border/60 pt-6 text-xs text-akar-muted gap-4">
-          <p>© 2026 AKAR - Tim 3MinionsHyuntang (WIA MIA 2026). Hak Cipta Dilindungi.</p>
+          <p>© 2026 AKAR - Tim 3MinionsHyuntang. Hak Cipta Dilindungi.</p>
           <div className="flex items-center space-x-6">
             <Link href="/data" className="hover:text-akar-primary transition-colors">
               Data Terbuka
