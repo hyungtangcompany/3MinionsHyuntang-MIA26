@@ -1,12 +1,12 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   Menu,
   X,
-  ShieldCheck,
   FolderKanban,
   Lightbulb,
   BookOpen,
@@ -42,24 +42,21 @@ export function Navbar({ className }: NavbarProps) {
         {/* Brand / Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-akar-primary/40 rounded-lg p-1"
+          className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-akar-primary/40 rounded-lg p-1 transition-opacity hover:opacity-90"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-akar-primary text-white shadow-sm ring-1 ring-akar-primary/20">
-            <ShieldCheck className="h-6 w-6" aria-hidden="true" />
+          <div className="relative flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center">
+            <Image
+              src="/logo-akar.png"
+              alt="Logo AKAR"
+              width={36}
+              height={36}
+              className="h-8 w-8 sm:h-9 sm:w-9 object-contain mix-blend-multiply dark:mix-blend-normal"
+              priority
+            />
           </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1.5">
-              <span className="font-extrabold text-xl tracking-tight text-akar-primary">
-                AKAR
-              </span>
-              <span className="hidden sm:inline-block rounded bg-akar-accent/20 px-1.5 py-0.5 text-[10px] font-bold text-akar-earth uppercase tracking-wider">
-                Desa Karang Sari
-              </span>
-            </div>
-            <span className="text-[11px] font-medium text-akar-muted -mt-1 hidden xs:block">
-              Transparansi &amp; Swakelola Warga
-            </span>
-          </div>
+          <span className="font-bold tracking-tight text-xl md:text-2xl font-sans text-[#1F6F43] dark:text-emerald-400">
+            AKAR
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
