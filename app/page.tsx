@@ -218,16 +218,16 @@ export default function HomePage() {
             </Card>
 
             {/* K - Keterbukaan */}
-            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-earth/70 cursor-default">
+            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/70 cursor-default">
               <CardHeader className="p-5 pb-3 space-y-2.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-earth text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-primary text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-2">
                   K
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-earth">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-primary">
                     Pilar 2
                   </span>
-                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-earth transition-colors">
+                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-primary transition-colors">
                     Keterbukaan Kas
                   </CardTitle>
                 </div>
@@ -248,16 +248,16 @@ export default function HomePage() {
             </Card>
 
             {/* A - Aksi */}
-            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-accent cursor-default">
+            <Card className="group flex flex-col justify-between border-akar-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-akar-primary/70 cursor-default">
               <CardHeader className="p-5 pb-3 space-y-2.5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-accent text-akar-ink font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-akar-primary text-white font-black text-xl shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2">
                   A
                 </div>
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-earth">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-akar-primary">
                     Pilar 3
                   </span>
-                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-earth transition-colors">
+                  <CardTitle className="text-base sm:text-lg group-hover:text-akar-primary transition-colors">
                     Aksi Swakelola
                   </CardTitle>
                 </div>
