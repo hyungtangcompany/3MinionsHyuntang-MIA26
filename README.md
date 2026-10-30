@@ -1,52 +1,141 @@
 # AKAR: Platform Transparansi Dana Desa & Sayembara Swakelola Warga
 
-Platform transparansi dana desa dan sayembara proyek swakelola warga berbasis web. Proyek ini dibangun untuk kompetisi **Web In Action (WIA) MIA 2026**.
+Platform transparansi tata kelola anggaran kas desa dan sistem lelang sayembara proyek swakelola warga berbasis web yang dirancang untuk mencegah korupsi, kolusi, dan manipulasi penawaran. Proyek ini dikembangkan oleh Hyungtang Company untuk kompetisi **Web In Action (WIA) MIA 2026**.
 
-## Tech Stack
-- **Framework:** Next.js (App Router) + TypeScript (strict)
-- **Styling:** Tailwind CSS + shadcn/ui
-- **Icons & Charts:** Lucide React, Recharts
-- **Forms & Validation:** React Hook Form + Zod
-- **Database & ORM:** PostgreSQL (Supabase) + pg_trgm, Prisma ORM
-- **Auth & Storage:** Supabase Auth & Supabase Storage
-- **AI Integration:** OpenAI SDK via OpenRouter (Llama 3.3 70B / DeepSeek)
+---
+
+## 🛠️ Tech Stack & Arsitektur
+
+- **Framework:** Next.js (App Router) + TypeScript (Strict Mode)
+- **Styling & UI:** Tailwind CSS + shadcn/ui
+- **Database & ORM:** PostgreSQL (Supabase Session Pooler via Port 5432) + Prisma ORM
+- **Validasi Skema:** Zod
+- **AI Engine:** OpenRouter API (Fallback Resilience: Llama 3.3 70B / Gemini -> DeepSeek Chat) via OpenAI SDK
+- **Integritas Teks:** Algoritma N-gram Trigram Jaccard Similarity (Prinsip `pg_trgm`)
 - **Testing:** Vitest
 
-## Struktur Repository
-Berdasarkan panduan PRD (Bagian 29.4):
+---
+
+## 📂 Struktur Proyek
 
 ```text
-├── /app/                   # Halaman (route group) dan /api (route handler)
-├── /components/            # Komponen UI bersama (/components/ui untuk shadcn)
-├── /lib/                   # scoring.ts, similarity.ts, overlap.ts, status-machine.ts, audit.ts, exif.ts, ai/summarizer.ts, schemas/
-├── /prisma/                # schema.prisma, migrations/, seed.ts
-├── /docs/                  # Kontrak API, diagram, koleksi Bruno, screenshot, PRD
-├── /.github/               # workflows/ci.yml, pull_request_template.md
-├── AGENTS.md               # Aturan proyek untuk AI agent
-├── .env.example            # Template variabel lingkungan
-└── README.md               # Dokumentasi proyek
+├── /app
+│   ├── /api
+│   │   ├── /desa/[id]/kas/ringkasan/route.ts  # Endpoint ringkasan neraca kas desa
+│   │   ├── /proyek/route.ts                  # Endpoint agregasi daftar proyek
+│   │   ├── /proyek/[id]/route.ts             # Endpoint detail proyek
+│   │   └── /proyek/[id]/proposal/route.ts    # Endpoint proposal, skor, flags, & AI
+├── /lib
+│   ├── prisma.ts                             # Singleton Prisma Client & serialisasi BigInt
+│   ├── scoring.ts                            # Algoritma perhitungan skor proposal (fungsi murni)
+│   ├── overlap.ts                            # Logika deteksi tumpang tindih anggota
+│   └── similarity.ts                         # Logika Trigram Jaccard kemiripan teks
+├── /prisma
+│   ├── schema.prisma                         # Skema database relasional
+│   ├── migrations/                           # Riwayat migrasi DDL database
+│   └── seed.ts                               # Seeder data awal & transaksi buku kas
+├── /scripts
+│   ├── detect-flags.ts                       # Pipeline deteksi anggota ganda & plagiarisme
+│   └── generate-ringkasan.ts                 # Pipeline analisis dan ringkasan proposal via AI
+├── __tests__                                 # Unit testing kalkulasi skor (Vitest)
+├── .env.example                              # Template environment variables
+└── README.md                                 # Dokumentasi teknis sistem
 ```
 
-## Memulai Pengembangan
+---
 
-1. Pasang dependensi:
-   ```bash
-   pnpm install
-   ```
+## 🎯 Fitur Inti & Logika Bisnis
 
-2. Konfigurasi environment variables:
-   Salin `.env.example` ke `.env` dan lengkapi nilai variabelnya.
-   ```bash
-   cp .env.example .env
-   ```
+### 1. Perhitungan Skor Murni Proposal (`lib/scoring.ts`)
+Mengikuti aturan deterministik PRD Bagian 25 tanpa ketergantungan AI:
+- **Efisiensi Biaya (Bobot 40%):** Skor tertinggi jika penawaran berada di rentang wajar (80%–95% pagu). Penawaran di bawah 70% memicu flag *"perlu klarifikasi harga"*, sedangkan penawaran $> 100\%$ otomatis ditolak.
+- **Serapan Tenaga Kerja Lokal (Bobot 30%):** Proporsional berdasarkan persentase tenaga kerja warga setempat. Jika di bawah batas minimum (default 70%), memicu flag *"tenaga lokal di bawah syarat"*.
+- **Rasionalitas Jadwal (Bobot 20%):** Evaluasi terhadap durasi standar jenis pekerjaan (`durasiMin`–`durasiMax`).
+- **Kelengkapan Dokumen (Bobot 10%):** Verifikasi ketersediaan jadwal, metode, mitigasi risiko, susunan anggota, dan rekam jejak.
 
-3. Jalankan server pengembangan:
-   ```bash
-   pnpm dev
-   ```
+### 2. Deteksi Integritas & Anti-Kolusi (`scripts/detect-flags.ts`)
+- **Deteksi Anggota Ganda (`lib/overlap.ts`):** Melacak keterlibatan identitas (hash NIK / nama warga) yang terdaftar di lebih dari satu kelompok penawar pada proyek yang sama (`JenisFlag.ANGGOTA`).
+- **Kemiripan Teks Narasi (`lib/similarity.ts`):** Menggunakan representasi N-gram Trigram untuk mendeteksi indikasi salin-tempel/sindikat proposal antar-kelompok (`JenisFlag.TEKS`) dengan ambang batas $\ge 60\%$.
+- Kedua flag otomatis diagregasi ke dalam data proposal pada endpoint publik.
 
-4. Menjalankan pengujian:
-   ```bash
-   pnpm test
-   ```
+### 3. Pipeline Generator Ringkasan AI Nyata (`scripts/generate-ringkasan.ts`)
+- Menganalisis proposal berbasis model AI OpenRouter (`google/gemini-2.0-flash` / `meta-llama/llama-3.3-70b-instruct`).
+- **Perlindungan Injeksi Prompt:** Narasi proposal diperlakukan strictly sebagai data mentah, bukan instruksi.
+- **Validasi Output Ketat:** Output diwajibkan berformat JSON murni yang divalidasi dengan skema Zod:
+  - `ringkasanEksekutif`: substansi usulan pekerjaan.
+  - `poinKekuatan`: keunggulan metode dan kapasitas lokal.
+  - `poinPerhatian`: mitigasi teknis dan risiko lapangan.
+  - `rekomendasiCatatan`: saran verifikasi faktual tanpa menentukan pemenang.
+- **Resilience:** Mekanisme retry otomatis 1x dan fallback ke model cadangan (`deepseek/deepseek-chat`).
 
+### 4. Transparansi Neraca Buku Kas Desa (`app/api/desa/[id]/kas/ringkasan`)
+- Menampilkan pencatatan kas desa:
+  - **Total Pemasukan:** Rp1.500.000.000 (Dana Desa Tahap 1 & 2, ADD, PADes, Bagi Hasil Pajak).
+  - **Total Pengeluaran:** Rp850.000.000 (Siltap, Operasional, Termin Proyek Balai Warga, Swakelola Jalan, Ketahanan Pangan).
+  - **Sisa Saldo Kas:** Rp650.000.000 secara matematis akurat.
+  - **Riwayat Mutasi:** Log transaksi lengkap dengan nomor referensi, tanggal, uraian, dan tautan bukti bayar.
+
+---
+
+## 📡 Kontrak Endpoint API (Read-Only T1)
+
+Semua endpoint mengembalikan struktur respons terstandarisasi: `{ data, error, meta? }`.
+
+| Method | Endpoint | Deskripsi |
+| :--- | :--- | :--- |
+| `GET` | `/api/proyek` | Mengambil seluruh daftar proyek (terbaru), pagu anggaran, dan rincian micro-RAB. |
+| `GET` | `/api/proyek/:id` | Detail spesifik proyek lengkap dengan relasi kelompok, proposal, dan status verifikasi. |
+| `GET` | `/api/proyek/:id/proposal` | Daftar proposal peserta sayembara dengan kalkulasi skor dinamis, flag peringatan integritas, dan analisis ringkasan AI. |
+| `GET` | `/api/desa/:id/kas/ringkasan` | Ringkasan neraca kas desa (total pemasukan, pengeluaran, saldo akhir, dan mutasi transaksi). |
+
+---
+
+## 🚀 Panduan Eksekusi & Pengujian
+
+### 1. Persiapan Lingkungan
+Salin berkas template lingkungan dan konfigurasikan koneksi basis data:
+```bash
+cp .env.example .env
+```
+Pastikan variabel `DATABASE_URL` dan `DIRECT_URL` merujuk pada instance PostgreSQL/Supabase Anda, serta `OPENROUTER_API_KEY` terisi jika ingin menjalankan generator AI.
+
+### 2. Instalasi Dependensi
+```bash
+pnpm install
+```
+
+### 3. Migrasi Skema & Generate Prisma Client
+```bash
+pnpm db:migrate
+pnpm db:generate
+```
+
+### 4. Inisialisasi Data Awal (Seeding)
+Menghapus data lama dan mengisi data realistis Desa Karang Sari, 4 proyek, rincian micro-RAB, kelompok peserta, serta 11 transaksi buku kas desa:
+```bash
+pnpm db:seed
+```
+
+### 5. Menjalankan Analisis Flag Integritas
+Mendeteksi anggota tumpang tindih dan kemiripan teks antar-proposal:
+```bash
+pnpm flags:detect
+```
+
+### 6. Menjalankan Generator Ringkasan AI (Opsional dengan API Key)
+Menghasilkan ringkasan terstruktur dari OpenRouter dan menyimpannya ke tabel `RingkasanAi`:
+```bash
+pnpm ai:summarize
+```
+
+### 7. Menjalankan Pengujian Unit (Vitest)
+Memvalidasi formula kalkulasi skor proposal terhadap skenario T01 & T02 PRD:
+```bash
+pnpm test
+```
+
+### 8. Menjalankan Server Pengembangan
+```bash
+pnpm dev
+```
+Akses platform melalui browser pada `http://localhost:3000`.
