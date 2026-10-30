@@ -37,8 +37,7 @@ const PROJECT_SLIDES: ProjectSlide[] = [
     title: "Sayembara Drainase RT 03",
     subtext: "Dikerjakan 100% oleh kelompok tukang warga lokal.",
     workerNote: "Termin 1 (50%) tersalurkan • 14 pekerja warga lokal",
-    imageUrl:
-      "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f9?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/proyek/drainase.jpg",
     alt: "Pengerjaan fisik saluran drainase desa oleh warga",
   },
   {
@@ -48,8 +47,7 @@ const PROJECT_SLIDES: ProjectSlide[] = [
     title: "Renovasi Balai Warga Dusun 2",
     subtext: "Progres fisik terverifikasi pengawas BPD & pendamping desa.",
     workerNote: "Pemasangan atap & ubin keramik • 18 pekerja warga lokal",
-    imageUrl:
-      "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/proyek/balai-warga.jpg",
     alt: "Gotong royong renovasi balai pertemuan warga dusun",
   },
   {
@@ -59,8 +57,7 @@ const PROJECT_SLIDES: ProjectSlide[] = [
     title: "Pengecoran Jalan Setapak",
     subtext: "Serapan tenaga kerja lokal mencapai 88% dengan upah harian PKTD.",
     workerNote: "Audit fisik tuntas tanpa deviasi • Akses jalan tani 450m",
-    imageUrl:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
+    imageUrl: "/proyek/jalan-desa.jpg",
     alt: "Pengecoran jalan setapak tani oleh warga desa",
   },
 ];
