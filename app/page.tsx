@@ -1,13 +1,8 @@
 import * as React from "react";
 import Link from "next/link";
 import {
-  ArrowRight,
-  Lightbulb,
   ShieldCheck,
-  HardHat,
-  Users,
   ChevronDown,
-  Sparkles,
   Database,
   Mail,
   ChevronRight,
@@ -69,13 +64,7 @@ export default function HomePage() {
         />
 
         {/* Centered Constrained Container */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col justify-center items-center text-center space-y-5 sm:space-y-6 my-auto">
-          {/* Competition Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-akar-accent/40 bg-black/45 backdrop-blur-md px-4 py-1.5 text-xs sm:text-sm font-semibold text-akar-accent shadow-md">
-            <Sparkles className="h-4 w-4 fill-akar-accent text-akar-accent" />
-            <span>Inisiatif Transparansi &amp; Padat Karya Tunai Desa • WIA MIA 2026</span>
-          </div>
-
+        <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col justify-center items-center text-center space-y-6 sm:space-y-8 my-auto">
           {/* Main Headline (PRD 27.2) */}
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15] drop-shadow-sm max-w-4xl">
             Dana desa yang terbuka,{" "}
@@ -85,21 +74,20 @@ export default function HomePage() {
           </h1>
 
           {/* Explanatory Subheadline */}
-          <p className="text-sm sm:text-lg lg:text-xl text-stone-200 leading-relaxed font-normal max-w-2xl mx-auto drop-shadow-xs">
+          <p className="text-base sm:text-lg lg:text-xl text-stone-200 leading-relaxed font-normal max-w-2xl mx-auto drop-shadow-xs">
             Buku kas publik yang berlog dan tak bisa diubah diam-diam, dipadukan
             dengan bursa kerja sayembara swakelola agar pemuda dan tukang lokal
             menjadi pelaksana utama pembangunan desa.
           </p>
 
           {/* Two Primary CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full sm:w-auto">
             <Link href="/proyek" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="w-full sm:w-auto min-h-[48px] px-8 text-base font-bold bg-akar-primary hover:bg-akar-primary-hover text-white shadow-lg shadow-black/30 group transition-all duration-200 hover:scale-[1.02]"
+                className="w-full sm:w-auto min-h-[48px] px-8 text-base font-bold bg-akar-primary hover:bg-akar-primary-hover text-white shadow-lg shadow-black/30 transition-all duration-200 hover:scale-[1.02]"
               >
-                <span>Lihat sayembara</span>
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                Lihat sayembara
               </Button>
             </Link>
 
@@ -109,26 +97,9 @@ export default function HomePage() {
                 variant="outline"
                 className="w-full sm:w-auto min-h-[48px] px-8 text-base font-semibold bg-white/10 hover:bg-white/20 text-white border-white/40 backdrop-blur-sm transition-all duration-200 hover:scale-[1.02]"
               >
-                <Lightbulb className="mr-2 h-5 w-5 text-akar-accent" />
-                <span>Kirim ide</span>
+                Kirim ide
               </Button>
             </Link>
-          </div>
-
-          {/* 3 Micro Trust Signals */}
-          <div className="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3.5 text-left w-full max-w-2xl">
-            <div className="flex items-center gap-2.5 rounded-xl border border-white/15 bg-black/40 backdrop-blur-md p-3 text-xs text-stone-200 shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
-              <ShieldCheck className="h-5 w-5 shrink-0 text-akar-accent" />
-              <span>Buku kas rantai hash berbukti</span>
-            </div>
-            <div className="flex items-center gap-2.5 rounded-xl border border-white/15 bg-black/40 backdrop-blur-md p-3 text-xs text-stone-200 shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
-              <HardHat className="h-5 w-5 shrink-0 text-akar-accent" />
-              <span>Serapan tukang lokal &ge; 70%</span>
-            </div>
-            <div className="flex items-center gap-2.5 rounded-xl border border-white/15 bg-black/40 backdrop-blur-md p-3 text-xs text-stone-200 shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
-              <Users className="h-5 w-5 shrink-0 text-akar-accent" />
-              <span>Diawasi BPD &amp; terbuka disanggah</span>
-            </div>
           </div>
         </div>
 
