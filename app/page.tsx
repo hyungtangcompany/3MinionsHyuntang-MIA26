@@ -122,7 +122,7 @@ export default function HomePage() {
         aria-label="Metrik Transparansi Dana Desa"
         className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 bg-white border-b border-akar-border/80"
       >
-        <div className="w-full max-w-5xl mx-auto flex flex-col justify-center items-center my-auto">
+        <div className="w-full max-w-5xl xl:max-w-6xl mx-auto flex flex-col justify-center items-center my-auto">
           {/* Section Header */}
           <div className="w-full flex flex-col sm:flex-row sm:items-end sm:justify-between mb-6 sm:mb-8 gap-3">
             <div>
@@ -174,7 +174,7 @@ export default function HomePage() {
         aria-label="Filosofi dan Cara Kerja AKAR"
         className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 bg-akar-bg border-b border-akar-border/80"
       >
-        <div className="w-full max-w-5xl mx-auto flex flex-col justify-center items-center my-auto">
+        <div className="w-full max-w-5xl xl:max-w-6xl mx-auto flex flex-col justify-center items-center my-auto">
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
