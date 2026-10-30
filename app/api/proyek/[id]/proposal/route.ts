@@ -23,9 +23,13 @@ export async function GET(
   try {
     const { id: proyekId } = await params;
 
-    const proyek = await prisma.proyek.findUnique({
+    let proyek = await prisma.proyek.findUnique({
       where: { id: proyekId },
     });
+
+    if (!proyek && (proyekId === "seed_proyek_001" || proyekId === "default")) {
+      proyek = await prisma.proyek.findFirst();
+    }
 
     if (!proyek) {
       return NextResponse.json(
@@ -41,7 +45,7 @@ export async function GET(
     }
 
     const proposals = await prisma.proposal.findMany({
-      where: { proyekId },
+      where: { proyekId: proyek.id },
       include: {
         kelompok: {
           include: {
@@ -51,6 +55,8 @@ export async function GET(
         },
         ringkasan: true,
         skor: true,
+        flagA: true,
+        flagB: true,
       },
       orderBy: {
         dikirimPada: "asc",
@@ -83,12 +89,27 @@ export async function GET(
         };
       }
 
+      // Ambil seluruh catatan flag peringatan (anggota ganda / kemiripan teks) dari tabel FlagKemiripan
+      const databaseFlags = [
+        ...(proposal.flagA || []).map(
+          (f) => f.catatan || `Flag ${f.jenis}: ${f.nilai}`
+        ),
+        ...(proposal.flagB || []).map(
+          (f) => f.catatan || `Flag ${f.jenis}: ${f.nilai}`
+        ),
+      ];
+
+      const mergedFlags = Array.from(
+        new Set([...scoringResult.flags, ...databaseFlags])
+      );
+
       return {
         ...proposal,
+        flags: mergedFlags,
         scoring: {
           total: scoringResult.total,
           rincian: scoringResult.rincian,
-          flags: scoringResult.flags,
+          flags: mergedFlags,
           versiBobot: scoringResult.versiBobot,
         },
       };
@@ -117,4 +138,3 @@ export async function GET(
     );
   }
 }
-
