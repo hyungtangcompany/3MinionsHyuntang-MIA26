@@ -176,17 +176,17 @@ export default function HomePage() {
         aria-label="Filosofi dan Cara Kerja AKAR"
         className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative overflow-hidden p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 bg-akar-bg border-b border-akar-border/80"
       >
-        {/* Subtle Watermark Logo Background */}
+        {/* Subtle Watermark Logo Background (Full-Frame) */}
         <div
           aria-hidden="true"
           className="absolute inset-0 m-auto flex items-center justify-center pointer-events-none select-none z-0"
         >
-          <div className="relative w-[340px] h-[340px] sm:w-[440px] sm:h-[440px] lg:w-[540px] lg:h-[540px] opacity-[0.045] dark:opacity-[0.06] blur-[0.5px]">
+          <div className="relative w-full h-full max-w-5xl max-h-[85vh] sm:w-[80vw] sm:h-[80vh] opacity-[0.035] dark:opacity-[0.05] transition-opacity duration-500 blur-[0.5px]">
             <Image
               src="/logo-akar.png"
               alt=""
               fill
-              sizes="(max-width: 768px) 340px, (max-width: 1200px) 440px, 540px"
+              sizes="(max-width: 1200px) 80vw, 1024px"
               className="object-contain mix-blend-multiply dark:mix-blend-screen"
               priority={false}
             />
