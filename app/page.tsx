@@ -190,174 +190,162 @@ export default function HomePage() {
           {/* 4 Cards Grid with Rich Hover Micro-Interactions */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 w-full">
             {/* A - Aspirasi */}
-            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md hover:border-[#1F6F43]/50 cursor-default rounded-2xl h-full relative">
-              <div className="h-1 w-full bg-[#1F6F43] absolute top-0 left-0 right-0" />
-              <div className="p-6 flex flex-col justify-between h-full">
-                <div className="space-y-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1F6F43] text-white font-black text-xl shadow-sm transition-transform duration-200 ease-out group-hover:scale-105">
-                    A
-                  </div>
-                  <div>
-                    <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
-                      Pilar 1
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#1F6F43] transition-colors">
-                      Aspirasi Warga
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Kirim &amp; kawal ide atau aduan pembangunan desa secara terbuka. Warga di desa maupun perantauan dapat mengusulkan proyek tanpa titipan pejabat.
-                  </p>
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#1F6F43] cursor-default rounded-2xl h-full p-6">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1F6F43] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  A
                 </div>
+                <div>
+                  <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
+                    Pilar 1
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#1F6F43] transition-colors">
+                    Aspirasi Warga
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Kirim &amp; kawal ide atau aduan pembangunan desa secara terbuka. Warga di desa maupun perantauan dapat mengusulkan proyek tanpa titipan pejabat.
+                </p>
+              </div>
 
-                <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
-                  <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
-                    Mekanisme:
-                  </div>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
-                      <span>Batas respon kades 14 hari</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
-                      <span>Deteksi ide kembar otomatis</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
-                      <span>Dukungan publik satu akun</span>
-                    </li>
-                  </ul>
+              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+                <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
+                  Mekanisme:
                 </div>
+                <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
+                    <span>Batas respon kades 14 hari</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
+                    <span>Deteksi ide kembar otomatis</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
+                    <span>Dukungan publik satu akun</span>
+                  </li>
+                </ul>
               </div>
             </Card>
 
             {/* K - Keterbukaan */}
-            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md hover:border-[#2E7D32]/50 cursor-default rounded-2xl h-full relative">
-              <div className="h-1 w-full bg-[#2E7D32] absolute top-0 left-0 right-0" />
-              <div className="p-6 flex flex-col justify-between h-full">
-                <div className="space-y-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2E7D32] text-white font-black text-xl shadow-sm transition-transform duration-200 ease-out group-hover:scale-105">
-                    K
-                  </div>
-                  <div>
-                    <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
-                      Pilar 2
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#2E7D32] transition-colors">
-                      Keterbukaan Kas
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Buku kas publik berlog append-only dan rincian micro-RAB per proyek hingga satuan upah tukang dan bahan material.
-                  </p>
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#388E3C] cursor-default rounded-2xl h-full p-6">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#388E3C] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  K
                 </div>
+                <div>
+                  <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
+                    Pilar 2
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#388E3C] transition-colors">
+                    Keterbukaan Kas
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Buku kas publik berlog append-only dan rincian micro-RAB per proyek hingga satuan upah tukang dan bahan material.
+                </p>
+              </div>
 
-                <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
-                  <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
-                    Mekanisme:
-                  </div>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#2E7D32] shrink-0" />
-                      <span>Rincian micro-RAB terbuka</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#2E7D32] shrink-0" />
-                      <span>Rantai hash SHA-256 anti-ubah</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#2E7D32] shrink-0" />
-                      <span>Pemisahan tugas pencatat/pengawas</span>
-                    </li>
-                  </ul>
+              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+                <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
+                  Mekanisme:
                 </div>
+                <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#388E3C] shrink-0" />
+                    <span>Rincian micro-RAB terbuka</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#388E3C] shrink-0" />
+                    <span>Rantai hash SHA-256 anti-ubah</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#388E3C] shrink-0" />
+                    <span>Pemisahan tugas pencatat/pengawas</span>
+                  </li>
+                </ul>
               </div>
             </Card>
 
             {/* A - Aksi */}
-            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md hover:border-[#166534]/50 cursor-default rounded-2xl h-full relative">
-              <div className="h-1 w-full bg-[#166534] absolute top-0 left-0 right-0" />
-              <div className="p-6 flex flex-col justify-between h-full">
-                <div className="space-y-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#166534] text-white font-black text-xl shadow-sm transition-transform duration-200 ease-out group-hover:scale-105">
-                    A
-                  </div>
-                  <div>
-                    <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
-                      Pilar 3
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#166534] transition-colors">
-                      Aksi Swakelola
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Bursa kerja sayembara pengerjaan desa diprioritaskan bagi kelompok warga &amp; tukang setempat, dinilai dengan rumus aturan objektif.
-                  </p>
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#4CAF50] cursor-default rounded-2xl h-full p-6">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#4CAF50] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  A
                 </div>
+                <div>
+                  <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
+                    Pilar 3
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#4CAF50] transition-colors">
+                    Aksi Swakelola
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Bursa kerja sayembara pengerjaan desa diprioritaskan bagi kelompok warga &amp; tukang setempat, dinilai dengan rumus aturan objektif.
+                </p>
+              </div>
 
-                <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
-                  <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
-                    Mekanisme:
-                  </div>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#166534] shrink-0" />
-                      <span>Syarat serapan lokal min. 70%</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#166534] shrink-0" />
-                      <span>Deteksi tumpang tindih tim/NIK</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#166534] shrink-0" />
-                      <span>AI merangkum, kades memilih</span>
-                    </li>
-                  </ul>
+              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+                <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
+                  Mekanisme:
                 </div>
+                <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#4CAF50] shrink-0" />
+                    <span>Syarat serapan lokal min. 70%</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#4CAF50] shrink-0" />
+                    <span>Deteksi tumpang tindih tim/NIK</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#4CAF50] shrink-0" />
+                    <span>AI merangkum, kades memilih</span>
+                  </li>
+                </ul>
               </div>
             </Card>
 
             {/* R - Realisasi */}
-            <Card className="group flex flex-col justify-between overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md hover:border-[#1F6F43]/50 cursor-default rounded-2xl h-full relative">
-              <div className="h-1 w-full bg-[#1F6F43] absolute top-0 left-0 right-0" />
-              <div className="p-6 flex flex-col justify-between h-full">
-                <div className="space-y-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1F6F43] text-white font-black text-xl shadow-sm transition-transform duration-200 ease-out group-hover:scale-105">
-                    R
-                  </div>
-                  <div>
-                    <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
-                      Pilar 4
-                    </span>
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#1F6F43] transition-colors">
-                      Realisasi Berbukti
-                    </h3>
-                  </div>
-                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Laporan progres mingguan berfoto metadata EXIF. Termin (0%, 50%, 100%) hanya dicairkan bila progres diverifikasi pengawas independen.
-                  </p>
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#14532D] cursor-default rounded-2xl h-full p-6">
+              <div className="space-y-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#14532D] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  R
                 </div>
+                <div>
+                  <span className="text-zinc-500 font-semibold tracking-wider text-xs uppercase">
+                    Pilar 4
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#14532D] transition-colors">
+                    Realisasi Berbukti
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Laporan progres mingguan berfoto metadata EXIF. Termin (0%, 50%, 100%) hanya dicairkan bila progres diverifikasi pengawas independen.
+                </p>
+              </div>
 
-                <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
-                  <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
-                    Mekanisme:
-                  </div>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
-                      <span>Foto laporan bertimestamp</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
-                      <span>Termin terkunci sebelum progres cukup</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="h-3.5 w-3.5 text-[#1F6F43] shrink-0" />
-                      <span>Tiket audit terbuka pasca-proyek</span>
-                    </li>
-                  </ul>
+              <div className="border-t border-zinc-200/80 dark:border-zinc-800 pt-3.5 mt-5 space-y-2">
+                <div className="text-xs font-semibold text-zinc-900 dark:text-zinc-200">
+                  Mekanisme:
                 </div>
+                <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#14532D] shrink-0" />
+                    <span>Foto laporan bertimestamp</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#14532D] shrink-0" />
+                    <span>Termin terkunci sebelum progres cukup</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Check className="h-3.5 w-3.5 text-[#14532D] shrink-0" />
+                    <span>Tiket audit terbuka pasca-proyek</span>
+                  </li>
+                </ul>
               </div>
             </Card>
           </div>
