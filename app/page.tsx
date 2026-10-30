@@ -174,29 +174,24 @@ export default function HomePage() {
       <section
         id="slide-filosofi"
         aria-label="Filosofi dan Cara Kerja AKAR"
-        className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative overflow-hidden p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 bg-akar-bg border-b border-akar-border/80"
+        className="min-h-screen lg:h-screen w-full snap-start flex flex-col justify-center items-center relative overflow-hidden p-4 sm:p-6 lg:p-8 pt-20 lg:pt-16 border-b border-akar-border/80"
       >
-        {/* Subtle Watermark Logo Background (Full-Frame) */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 m-auto flex items-center justify-center pointer-events-none select-none z-0"
-        >
-          <div className="relative w-full h-full max-w-5xl max-h-[85vh] sm:w-[80vw] sm:h-[80vh] opacity-[0.035] dark:opacity-[0.05] transition-opacity duration-500 blur-[0.5px]">
-            <Image
-              src="/logo-akar.png"
-              alt=""
-              fill
-              sizes="(max-width: 1200px) 80vw, 1024px"
-              className="object-contain mix-blend-multiply dark:mix-blend-screen"
-              priority={false}
-            />
-          </div>
+        {/* Full-Frame Background Logo */}
+        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none select-none">
+          <Image
+            src="/logo-akar.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center opacity-100"
+            priority={false}
+          />
         </div>
 
         {/* Foreground Content */}
-        <div className="w-full max-w-5xl xl:max-w-6xl mx-auto flex flex-col justify-center items-center my-auto relative z-10">
-          {/* Section Header */}
-          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2">
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 my-auto flex flex-col justify-center items-center">
+          {/* Section Header with Backdrop Pill */}
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 space-y-2 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border border-zinc-200/80 dark:border-zinc-800 rounded-2xl p-4 sm:p-5 shadow-lg">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
               <span className="text-[#1B1B18] dark:text-zinc-100">Empat Pilar Transparansi </span>
               <span className="text-[#1F6F43] dark:text-emerald-400 font-extrabold">AKAR</span>
@@ -209,7 +204,7 @@ export default function HomePage() {
           {/* 4 Cards Grid with Rich Hover Micro-Interactions */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 w-full">
             {/* A - Aspirasi */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#1F6F43] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#1F6F43] cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1F6F43] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   A
@@ -249,7 +244,7 @@ export default function HomePage() {
             </Card>
 
             {/* K - Keterbukaan */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#388E3C] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#388E3C] cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#388E3C] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   K
@@ -289,7 +284,7 @@ export default function HomePage() {
             </Card>
 
             {/* A - Aksi */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#4CAF50] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#4CAF50] cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#4CAF50] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   A
@@ -329,7 +324,7 @@ export default function HomePage() {
             </Card>
 
             {/* R - Realisasi */}
-            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#14532D] cursor-default rounded-2xl h-full p-6">
+            <Card className="group flex flex-col justify-between border border-zinc-200/80 dark:border-zinc-800 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:border-[#14532D] cursor-default rounded-2xl h-full p-6">
               <div className="space-y-3">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#14532D] text-white font-black text-xl shadow-sm transition-transform duration-300 group-hover:scale-105">
                   R
