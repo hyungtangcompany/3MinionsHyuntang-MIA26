@@ -33,7 +33,7 @@ const PROJECT_SLIDES: ProjectSlide[] = [
   {
     id: 1,
     badge: "Proyek Fisik Berjalan",
-    badgeColor: "bg-emerald-600",
+    badgeColor: "bg-akar-primary",
     title: "Sayembara Drainase RT 03",
     subtext: "Dikerjakan 100% oleh kelompok tukang warga lokal.",
     workerNote: "Termin 1 (50%) tersalurkan • 14 pekerja warga lokal",
@@ -43,7 +43,7 @@ const PROJECT_SLIDES: ProjectSlide[] = [
   {
     id: 2,
     badge: "Termin 50% Disetujui",
-    badgeColor: "bg-amber-600",
+    badgeColor: "bg-akar-earth",
     title: "Renovasi Balai Warga Dusun 2",
     subtext: "Progres fisik terverifikasi pengawas BPD & pendamping desa.",
     workerNote: "Pemasangan atap & ubin keramik • 18 pekerja warga lokal",
@@ -53,7 +53,7 @@ const PROJECT_SLIDES: ProjectSlide[] = [
   {
     id: 3,
     badge: "Selesai 100%",
-    badgeColor: "bg-[#1F6F43]",
+    badgeColor: "bg-akar-primary",
     title: "Pengecoran Jalan Setapak",
     subtext: "Serapan tenaga kerja lokal mencapai 88% dengan upah harian PKTD.",
     workerNote: "Audit fisik tuntas tanpa deviasi • Akses jalan tani 450m",
@@ -114,7 +114,7 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
       {/* BENTO CARD 1: HERO METRIC (Pagu APBDes 2026)                              */}
       {/* Spans: 2 cols on md/lg, 1 row                                             */}
       {/* ========================================================================= */}
-      <div className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gradient-to-br from-[#1F6F43] to-[#144d2e] text-white p-6 sm:p-7 rounded-2xl relative overflow-hidden shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md cursor-default group min-h-[240px]">
+      <div className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 bg-gradient-to-br from-akar-primary to-akar-primary-hover text-white p-5 sm:p-7 rounded-2xl relative overflow-hidden shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md cursor-default group min-h-[220px] sm:min-h-[240px]">
         {/* Subtle Watermark Decoration in Background */}
         <div className="absolute -right-4 -bottom-4 w-44 h-44 opacity-[0.06] pointer-events-none select-none transition-transform duration-500 group-hover:scale-105">
           <Image
@@ -127,7 +127,7 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
         </div>
 
         {/* Top Header & Verified Indicator */}
-        <div className="relative z-10 flex items-center justify-between gap-2">
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs font-bold uppercase tracking-wider text-emerald-200">
             Pagu APBDes 2026
           </span>
@@ -139,34 +139,34 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
 
         {/* Main Big Metric Nominal */}
         <div className="relative z-10 my-2">
-          <div className="flex items-baseline gap-1 text-white">
+          <div className="flex flex-wrap items-baseline gap-1 text-white">
             <span className="text-base sm:text-lg font-semibold text-emerald-200">
               Rp
             </span>
-            <span className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight break-all">
               {formatNumber(metrics.paguDesa)}
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-emerald-100/90 mt-1 font-normal">
+          <p className="text-xs sm:text-sm text-emerald-100/90 mt-1 font-normal leading-relaxed">
             Total pagu operasional dan pemberdayaan masyarakat desa tahun anggaran 2026
           </p>
         </div>
 
         {/* Two-tone Comparison Visual Bar (KDMP vs Reguler) */}
         <div className="relative z-10 pt-2 border-t border-white/10">
-          <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-emerald-100/90 mb-2">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-medium text-emerald-100/90 mb-2">
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#F2B705]" />
+              <span className="w-2 h-2 rounded-full bg-akar-accent shrink-0" />
               <span>KDMP 58,03%: Rp580,3 Jt</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-300" />
+              <span className="w-2 h-2 rounded-full bg-emerald-300 shrink-0" />
               <span>Pagu Reguler: Rp419,7 Jt</span>
             </span>
           </div>
           <div className="w-full h-2 rounded-full bg-black/20 overflow-hidden flex">
             <div
-              className="h-full bg-[#F2B705] transition-all duration-1000 ease-out"
+              className="h-full bg-akar-accent transition-all duration-1000 ease-out"
               style={{ width: "58.03%" }}
               title="KDMP: 58.03%"
             />
@@ -184,7 +184,7 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
       {/* Spans: 2 cols on md/lg, 2 rows on lg                                      */}
       {/* ========================================================================= */}
       <div
-        className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 lg:row-span-2 relative h-full min-h-[340px] sm:min-h-[360px] w-full rounded-2xl overflow-hidden shadow-sm group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md cursor-default flex flex-col justify-end"
+        className="col-span-1 md:col-span-2 lg:col-span-2 row-span-1 lg:row-span-2 relative h-full min-h-[300px] sm:min-h-[360px] w-full rounded-2xl overflow-hidden shadow-sm group transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md cursor-default flex flex-col justify-end"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         role="region"
@@ -232,7 +232,7 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
                 onClick={(e) => handleSelectSlide(idx, e)}
                 className={`transition-all duration-300 rounded-full min-h-[16px] flex items-center justify-center p-0.5 focus:outline-hidden focus:ring-1 focus:ring-white ${
                   idx === currentSlide
-                    ? "w-6 h-2 bg-emerald-400"
+                    ? "w-6 h-2 bg-akar-primary-light"
                     : "w-2 h-2 bg-white/40 hover:bg-white/80"
                 }`}
                 aria-label={`Lihat foto ${idx + 1}: ${slide.title}`}
@@ -261,9 +261,9 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
         </div>
 
         {/* Content Details on Bottom Layer */}
-        <div className="relative z-20 p-6 sm:p-7 flex flex-col justify-end text-white">
+        <div className="relative z-20 p-5 sm:p-7 flex flex-col justify-end text-white">
           <div className="transition-all duration-500 ease-out">
-            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+            <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight leading-snug">
               {PROJECT_SLIDES[currentSlide].title}
             </h3>
 
@@ -272,7 +272,7 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
             </p>
 
             <div className="flex items-center gap-2 text-xs text-emerald-200 mt-3 font-medium">
-              <HardHat className="w-4 h-4 text-amber-300 shrink-0" />
+              <HardHat className="w-4 h-4 text-akar-accent shrink-0" />
               <span>{PROJECT_SLIDES[currentSlide].workerNote}</span>
             </div>
           </div>
@@ -283,38 +283,38 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
       {/* BENTO CARD 3: REALISASI KAS & INTEGRITAS AUDIT                            */}
       {/* Spans: 1 col on all viewports, row 2 on lg                                */}
       {/* ========================================================================= */}
-      <div className="col-span-1 md:col-span-1 lg:col-span-1 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl flex flex-col justify-between shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-[#8A5A2B]/40 cursor-default group min-h-[220px]">
+      <div className="col-span-1 md:col-span-1 lg:col-span-1 bg-white border border-akar-border/80 p-5 sm:p-6 rounded-2xl flex flex-col justify-between shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-akar-earth/40 cursor-default group min-h-[200px] sm:min-h-[220px]">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-[#8A5A2B] transition-colors">
+          <span className="text-xs font-bold uppercase tracking-wider text-akar-muted group-hover:text-akar-earth transition-colors">
             Realisasi Kas
           </span>
-          <span className="text-sm font-semibold text-[#8A5A2B]">
+          <span className="text-sm font-semibold text-akar-earth">
             {metrics.realisasiPersen}% Terserap
           </span>
         </div>
 
         {/* Value */}
         <div className="my-3">
-          <div className="flex items-baseline gap-1 text-[#8A5A2B]">
-            <span className="text-sm font-semibold text-muted-foreground">Rp</span>
-            <span className="text-2xl font-bold tracking-tight">
+          <div className="flex flex-wrap items-baseline gap-1 text-akar-earth">
+            <span className="text-sm font-semibold text-akar-muted">Rp</span>
+            <span className="text-xl sm:text-2xl font-bold tracking-tight">
               {formatNumber(metrics.realisasiKas)}
             </span>
           </div>
 
           {/* Clean Progress Meter */}
-          <div className="w-full bg-zinc-100 dark:bg-zinc-800 h-1.5 rounded-full mt-2.5 overflow-hidden">
+          <div className="w-full bg-stone-100 h-1.5 rounded-full mt-2.5 overflow-hidden">
             <div
-              className="h-full bg-[#8A5A2B] rounded-full transition-all duration-1000 ease-out"
+              className="h-full bg-akar-earth rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${animatedProgress.realisasi}%` }}
             />
           </div>
         </div>
 
         {/* Footer Note with Icon */}
-        <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-start gap-2 text-xs text-muted-foreground leading-snug">
-          <Receipt className="w-3.5 h-3.5 text-[#8A5A2B] shrink-0 mt-0.5" />
+        <div className="pt-3 border-t border-akar-border/60 flex items-start gap-2 text-xs text-akar-muted leading-snug">
+          <Receipt className="w-3.5 h-3.5 text-akar-earth shrink-0 mt-0.5" />
           <span>Tersalur dengan bukti transfer digital &amp; verifikasi BPD.</span>
         </div>
       </div>
@@ -323,45 +323,45 @@ export function AnimatedMetricCards({ metrics }: AnimatedMetricCardsProps) {
       {/* BENTO CARD 4: SERAPAN TENAGA KERJA LOKAL                                  */}
       {/* Spans: 1 col on all viewports, row 2 on lg                                */}
       {/* ========================================================================= */}
-      <div className="col-span-1 md:col-span-1 lg:col-span-1 bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 p-6 rounded-2xl flex flex-col justify-between shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-[#1F6F43]/40 cursor-default group min-h-[220px]">
+      <div className="col-span-1 md:col-span-1 lg:col-span-1 bg-white border border-akar-border/80 p-5 sm:p-6 rounded-2xl flex flex-col justify-between shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-akar-primary/40 cursor-default group min-h-[200px] sm:min-h-[220px]">
         {/* Header */}
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-[#1F6F43] transition-colors">
+          <span className="text-xs font-bold uppercase tracking-wider text-akar-muted group-hover:text-akar-primary transition-colors">
             Tenaga Kerja Lokal
           </span>
-          <span className="text-sm font-semibold text-[#1F6F43] flex items-center gap-1">
-            <CheckCircle2 className="w-4 h-4 text-[#1F6F43]" />
+          <span className="text-sm font-semibold text-akar-primary flex items-center gap-1">
+            <CheckCircle2 className="w-4 h-4 text-akar-primary" />
             <span>Melampaui Target</span>
           </span>
         </div>
 
         {/* Value */}
         <div className="my-3">
-          <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-extrabold tracking-tight text-[#1F6F43]">
+          <div className="flex flex-wrap items-baseline gap-2">
+            <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-akar-primary">
               {metrics.serapanTenagaLokalPersen}%
             </span>
-            <span className="text-xs font-semibold text-muted-foreground">
+            <span className="text-xs font-semibold text-akar-muted">
               warga terberdayakan
             </span>
           </div>
 
           {/* Clean Progress Meter */}
-          <div className="w-full bg-zinc-100 dark:bg-zinc-800 h-1.5 rounded-full mt-2.5 overflow-hidden">
+          <div className="w-full bg-stone-100 h-1.5 rounded-full mt-2.5 overflow-hidden">
             <div
-              className="h-full bg-[#1F6F43] rounded-full transition-all duration-1000 ease-out"
+              className="h-full bg-akar-primary rounded-full transition-all duration-1000 ease-out"
               style={{ width: `${animatedProgress.serapan}%` }}
             />
           </div>
         </div>
 
         {/* Footer Note with Target */}
-        <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs text-muted-foreground">
+        <div className="pt-3 border-t border-akar-border/60 flex items-center justify-between text-xs text-akar-muted">
           <div className="flex items-center gap-1.5">
-            <Users className="w-3.5 h-3.5 text-[#1F6F43] shrink-0" />
+            <Users className="w-3.5 h-3.5 text-akar-primary shrink-0" />
             <span>Target PKTD Min. 70%</span>
           </div>
-          <span className="text-xs font-bold text-[#1F6F43]">
+          <span className="text-xs font-bold text-akar-primary">
             +18% dari target
           </span>
         </div>

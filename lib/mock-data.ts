@@ -1,3 +1,5 @@
+import mockData from "@/data/mock.json";
+
 export interface MetricSummary {
   paguDesa: number;
   paguKdmp: number;
@@ -39,116 +41,16 @@ export interface CommunityIdeaPreview {
   lokasi: string;
 }
 
-export const mockDesaInfo = {
-  nama: "Desa Karang Sari",
-  kecamatan: "Kecamatan Harapan",
-  kabupaten: "Kabupaten Contoh",
-  tahun: 2026,
-};
+export interface DesaInfo {
+  nama: string;
+  kecamatan: string;
+  kabupaten: string;
+  tahun: number;
+}
 
-export const mockMetrics: MetricSummary = {
-  paguDesa: 1000000000, // Rp 1.000.000.000 (Sesuai PRD 28.3)
-  paguKdmp: 580300000,  // Rp 580.300.000 (58,03% KDMP)
-  paguReguler: 419700000, // Rp 419.700.000
-  realisasiKas: 420000000, // Rp 420.000.000 (42%)
-  realisasiPersen: 42,
-  proyekBerjalan: 2, // 1 tender dibuka, 1 pengerjaan
-  serapanTenagaLokalPersen: 88, // Melampaui syarat min 70%
-};
+export const mockDesaInfo: DesaInfo = mockData.desaInfo;
+export const mockMetrics: MetricSummary = mockData.metrics;
+export const mockRecentProjects: ProjectPreview[] = mockData.recentProjects as ProjectPreview[];
+export const mockPopularIdeas: CommunityIdeaPreview[] = mockData.popularIdeas as CommunityIdeaPreview[];
 
-export const mockRecentProjects: ProjectPreview[] = [
-  {
-    id: "proj-drainase-rt3",
-    judul: "Pembangunan Drainase Pemukiman RT 03",
-    deskripsi:
-      "Normalisasi dan pembuatan saluran drainase batu kali sepanjang 350 meter untuk mengatasi genangan air hujan di area pemukiman warga RT 03.",
-    lokasi: "Dusun 1, RT 03 / RW 01",
-    pagu: 100000000,
-    status: "TENDER_DIBUKA",
-    statusLabel: "Tender Dibuka",
-    jalur: "SAYEMBARA",
-    jalurLabel: "Sayembara Swakelola",
-    sumberIde: "WARGA",
-    sumberIdeLabel: "Aspirasi Warga",
-    serapanLokal: 90,
-    tenggatHari: 14,
-  },
-  {
-    id: "proj-balai-warga",
-    judul: "Rehabilitasi Balai Pertemuan Warga Serbaguna",
-    deskripsi:
-      "Peningkatan fasilitas aula desa dan ruang pertemuan dusun untuk posyandu balita, pelatihan tani mandiri, dan kegiatan kepemudaan karang taruna.",
-    lokasi: "Dusun Krajan, Pusat Desa",
-    pagu: 140000000,
-    status: "PENGERJAAN",
-    statusLabel: "Dalam Pengerjaan",
-    jalur: "SAYEMBARA",
-    jalurLabel: "Sayembara Swakelola",
-    sumberIde: "MUSDES",
-    sumberIdeLabel: "Musdes 2026",
-    serapanLokal: 85,
-    progresPersen: 50,
-  },
-  {
-    id: "proj-jalan-setapak",
-    judul: "Rabat Beton Jalan Setapak Lingkungan Dusun Krajan",
-    deskripsi:
-      "Pengecoran jalan setapak warga sepanjang 400 meter dengan ketebalan standar untuk mempermudah akses anak sekolah dan mobilitas hasil panen kebun.",
-    lokasi: "Dusun Krajan, RT 02 / RW 03",
-    pagu: 60000000,
-    status: "SELESAI",
-    statusLabel: "Selesai 100%",
-    jalur: "SAYEMBARA",
-    jalurLabel: "Sayembara Swakelola",
-    sumberIde: "WARGA",
-    sumberIdeLabel: "Aspirasi Warga",
-    serapanLokal: 100,
-    progresPersen: 100,
-  },
-];
-
-export const mockPopularIdeas: CommunityIdeaPreview[] = [
-  {
-    id: "ide-saluran-irigasi",
-    nomor: "IDE-2026-0012",
-    judul: "Perbaikan Saluran Irigasi Primer Sawah Blok Timur",
-    deskripsi:
-      "Tanggul saluran irigasi tanah di blok timur mengalami erosi parah dan pendangkalan lumpur, mengakibatkan suplai air ke 15 hektar sawah produktif terhambat.",
-    kategori: "Infrastruktur Pertanian",
-    pengusul: "Warga Dusun 2 (Anonim)",
-    isAnonim: true,
-    jumlahDukungan: 142,
-    status: "VERIFIKASI",
-    statusLabel: "Tahap Verifikasi",
-    lokasi: "Dusun 2, Blok Sawah Timur",
-  },
-  {
-    id: "ide-pos-ronda",
-    nomor: "IDE-2026-0019",
-    judul: "Pengadaan Lampu Tenaga Surya & Pos Ronda RT 04",
-    deskripsi:
-      "Pemasangan 6 unit lampu jalan mandiri solar cell di pertigaan gelap rawan kecelakaan serta renovasi gardu pos kamling warga untuk siskamling malam.",
-    kategori: "Keamanan Lingkungan",
-    pengusul: "Karang Taruna Tunas Harapan",
-    isAnonim: false,
-    jumlahDukungan: 98,
-    status: "DIAJUKAN",
-    statusLabel: "Menunggu Dukungan",
-    lokasi: "Dusun Krajan, RT 04",
-  },
-  {
-    id: "ide-bank-sampah",
-    nomor: "IDE-2026-0024",
-    judul: "Pemberdayaan Rumah Kompos & Bank Sampah Desa",
-    deskripsi:
-      "Pengadaan mesin pencacah daun dan bak penampungan kompos organik dari limbah rumah tangga untuk mendukung program pekarangan pangan lestari ibu-ibu PKK.",
-    kategori: "Lingkungan Hidup",
-    pengusul: "Kelompok Wanita Tani (KWT) Mawar",
-    isAnonim: false,
-    jumlahDukungan: 76,
-    status: "DIAJUKAN",
-    statusLabel: "Menunggu Dukungan",
-    lokasi: "Dusun Harapan Makmur",
-  },
-];
-
+export default mockData;

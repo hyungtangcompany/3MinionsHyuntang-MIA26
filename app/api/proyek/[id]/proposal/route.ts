@@ -39,6 +39,7 @@ export async function GET(
             code: "NOT_FOUND",
             message: `Proyek dengan ID '${proyekId}' tidak ditemukan`,
           },
+          meta: null,
         },
         { status: 404 }
       );
@@ -133,6 +134,7 @@ export async function GET(
           code: "INTERNAL_SERVER_ERROR",
           message: errorMessage,
         },
+        meta: null,
       },
       { status: 500 }
     );

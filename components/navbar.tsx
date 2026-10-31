@@ -54,7 +54,7 @@ export function Navbar({ className }: NavbarProps) {
               priority
             />
           </div>
-          <span className="font-bold tracking-tight text-xl md:text-2xl font-sans text-[#1F6F43] dark:text-emerald-400">
+          <span className="font-bold tracking-tight text-xl md:text-2xl font-sans text-akar-primary">
             AKAR
           </span>
         </Link>

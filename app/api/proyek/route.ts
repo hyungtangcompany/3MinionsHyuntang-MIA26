@@ -10,6 +10,9 @@ export async function GET() {
       include: {
         desa: true,
         rab: true,
+        proposal: {
+          select: { id: true },
+        },
       },
     });
 
@@ -31,9 +34,9 @@ export async function GET() {
           code: "INTERNAL_SERVER_ERROR",
           message: errorMessage,
         },
+        meta: null,
       },
       { status: 500 }
     );
   }
 }
-
